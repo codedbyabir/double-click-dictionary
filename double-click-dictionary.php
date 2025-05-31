@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Double Click Dictionary
-Plugin URI:https://github.com/codedbyabir/double-click-dictionary
-Description: Double Click Dictionary is a WordPress plugin that allows users to double-click on any word in the content area to get its meaning from the dictionary.
+Plugin Name: Word Look
+Plugin URI:https://github.com/codedbyabir/word-look
+Description: A simple WordPress plugin that allows users to double-click on any word in the content to get its meaning from the dictionary.
 Version: 1.0.0
 Author: Rath Shahamat Abir
 Author URI: https://github.com/codedbyabir
@@ -15,21 +15,21 @@ if (!defined("ABSPATH"))
 
 
 
-class Double_click_dictionary
+class Word_Look
 {
-    const VERSION = "1.0.1";
+    const VERSION = "1.0.0";
     public function __construct()
     {
 
-        add_action('wp_enqueue_scripts', [$this, 'dcd_load_scripts'], 999);
-        add_action('wp_footer', [$this, 'dcd_add_dictionary_popup']);
+        add_action('wp_enqueue_scripts', [$this, 'wl_load_scripts'], 999);
+        add_action('wp_footer', [$this, 'wl_add_dictionary_popup']);
 
     }
 
-    function dcd_load_scripts()
+    function wl_load_scripts()
     {
         wp_enqueue_style(
-        'dcd-style-css',
+        'wl-style-css',
         plugin_dir_url(__FILE__) . 'assets/css/style.css',
         [],
         self::VERSION
@@ -37,7 +37,7 @@ class Double_click_dictionary
 
 
         wp_enqueue_script(
-            'dcd-custom-js',
+            'wl-custom-js',
             plugin_dir_url(__FILE__) . 'assets/js/custom.js',
             ['jquery'],
             self::VERSION,
@@ -45,7 +45,7 @@ class Double_click_dictionary
         );
     }
 
-    function dcd_add_dictionary_popup()
+    function wl_add_dictionary_popup()
     {
         // Output modal markup in the footer
         ?>
@@ -64,4 +64,4 @@ class Double_click_dictionary
 }
 
 
-new Double_click_dictionary();
+new Word_Look();
