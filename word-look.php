@@ -8,6 +8,8 @@ Author: Rath Shahamat Abir
 Author URI: https://github.com/codedbyabir
 License: GPL2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Require PHP: 8.0
+Text Domain: word-look
 */
 
 if (!defined("ABSPATH"))
@@ -15,7 +17,7 @@ if (!defined("ABSPATH"))
 
 
 
-class Wdlook_Dictionary
+final class Wdlook_Dictionary
 {
     const VERSION = "1.0.0";
     public function __construct()
@@ -29,11 +31,11 @@ class Wdlook_Dictionary
     function wdlook_load_scripts()
     {
         wp_enqueue_style(
-        'wdlook-style-css',
-        plugin_dir_url(__FILE__) . 'assets/css/style.css',
-        [],
-        self::VERSION
-);
+            'wdlook-style-css',
+            plugin_dir_url(__FILE__) . 'assets/css/style.css',
+            [],
+            self::VERSION
+        );
 
 
         wp_enqueue_script(
@@ -52,7 +54,7 @@ class Wdlook_Dictionary
 
         <div id="wdlook-wordMeaningModal">
             <div class="wdlook-word-modal-content">
-                <div class="wdlook-close-wrapper"> <button class="wdlook-word-close">X</button></div>
+                <div class="wdlook-close-wrapper"> <button class="wdlook-word-close"><?php esc_html_e('X', 'word-look'); ?></button></div>  
                 <div>
                     <h2 id="wdlook-selectedWord"></h2>
                     <p id="wdlook-wordDefinition"></p>
@@ -64,4 +66,6 @@ class Wdlook_Dictionary
 }
 
 
-new Wdlook_Dictionary();
+if (class_exists('Wdlook_Dictionary')) {
+    new Wdlook_Dictionary();
+}
