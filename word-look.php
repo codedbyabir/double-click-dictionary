@@ -15,7 +15,7 @@ if (!defined("ABSPATH"))
 
 
 
-class Word_Look
+class Wdlook_Dictionary
 {
     const VERSION = "1.0.0";
     public function __construct()
@@ -64,4 +64,4 @@ class Word_Look
 }
 
 
-new Word_Look();
+new Wdlook_Dictionary();
