@@ -21,15 +21,15 @@ class Word_Look
     public function __construct()
     {
 
-        add_action('wp_enqueue_scripts', [$this, 'wl_load_scripts'], 999);
-        add_action('wp_footer', [$this, 'wl_add_dictionary_popup']);
+        add_action('wp_enqueue_scripts', [$this, 'wdlook_load_scripts'], 999);
+        add_action('wp_footer', [$this, 'wdlook_add_dictionary_popup']);
 
     }
 
-    function wl_load_scripts()
+    function wdlook_load_scripts()
     {
         wp_enqueue_style(
-        'wl-style-css',
+        'wdlook-style-css',
         plugin_dir_url(__FILE__) . 'assets/css/style.css',
         [],
         self::VERSION
@@ -37,7 +37,7 @@ class Word_Look
 
 
         wp_enqueue_script(
-            'wl-custom-js',
+            'wdlook-custom-js',
             plugin_dir_url(__FILE__) . 'assets/js/custom.js',
             ['jquery'],
             self::VERSION,
@@ -45,17 +45,17 @@ class Word_Look
         );
     }
 
-    function wl_add_dictionary_popup()
+    function wdlook_add_dictionary_popup()
     {
         // Output modal markup in the footer
         ?>
 
-        <div id="wordMeaningModal" class="word-modal">
-            <div class="word-modal-content">
-                <div class="close-wrapper"> <button class="word-close">X</button></div>
+        <div id="wdlook-wordMeaningModal">
+            <div class="wdlook-word-modal-content">
+                <div class="wdlook-close-wrapper"> <button class="wdlook-word-close">X</button></div>
                 <div>
-                    <h2 id="selectedWord"></h2>
-                    <p id="wordDefinition"></p>
+                    <h2 id="wdlook-selectedWord"></h2>
+                    <p id="wdlook-wordDefinition"></p>
                 </div>
             </div>
         </div>

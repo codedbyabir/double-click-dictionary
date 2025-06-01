@@ -1,4 +1,4 @@
-#wordMeaningModal{
+#wdlook-wordMeaningModal{
     display:none;
     position: fixed;
     z-index: 9999;
@@ -11,7 +11,7 @@
     background-color: rgba(0, 0, 0, 0);
 }
 
-.word-modal-content{
+.wdlook-word-modal-content{
     background-color: #fff;
     margin: auto;
     padding: 10px 20px;
@@ -22,7 +22,7 @@
     position: relative;
     animation: fadeIn 0.3s ease-in-out;
 }
-.close-wrapper{
+.wdlook-close-wrapper{
     
     display: flex;
     justify-content: flex-end;
